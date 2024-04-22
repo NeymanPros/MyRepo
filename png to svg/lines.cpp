@@ -238,29 +238,6 @@ public:
     }
 };
 
-class circle {
-private:
-    int r = 0.5;
-    int cx = 0;
-    int cy = 0;
-    std::array <short, 3 > rgb = { 0, 0, 0 };
-public:
-    circle() {};
-    circle(int a, int b) {
-        cx = a;
-        cy = b;
-    }
-    circle(int a, int b, int c, short R, short G, short B) {
-        cx = a;
-        cy = b;
-        r = c;
-        rgb = { R, G, B };//fill
-    }
-    std::string write() {
-        return "<circle r=\"" + std::to_string(r) + "\" cx=\"" + std::to_string(cx) + "\" cy=\"" + std::to_string(cy) + "\"/>\n";
-    }
-};
-
 std::string end() {
     return "</svg>";
 }
@@ -369,13 +346,10 @@ int main() {
             neib(c, nc, i, j);
             Valuable_dots(c, hc, i, j);
         }
-    }
 
-    idealize(); ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    imshow("Put", c);
-    imshow("Walter", nc);
-    imshow("Your", hc);
+    imshow("One", c);
+    imshow("Two", nc);
+    imshow("Three", hc);
 
     int z = waitKey(0);
     if (z == '1') {
