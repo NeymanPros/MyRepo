@@ -1,4 +1,4 @@
-use iced::{Element, Application, Settings, Theme, executor, Command, font};
+use iced::{Element, Application, Settings, Theme, executor, Command, font}; //my first iced app
 use iced::widget::{text, text_editor, button, column, row};
 
 fn main () -> iced::Result {
