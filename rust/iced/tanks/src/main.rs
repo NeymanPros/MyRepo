@@ -107,26 +107,6 @@ impl Clone for Bullet {
     }
 }
 
-/*struct Circle {
-    radius: f32,
-    location: Point,
-    color: Color
-}
-
-impl<Message> canvas::Program<Message> for Circle {
-    type State = ();
-
-    fn draw(&self, state: &Self::State, renderer: &Renderer, theme: &Theme, bounds: Rectangle, cursor: Cursor) -> Vec<Geometry<Renderer>> {
-        let mut frame = canvas::Frame::new(renderer, bounds.size());
-
-        let circle = canvas::Path::circle(self.location, self.radius);
-
-        frame.fill(&circle, self.color);
-
-        vec![frame.into_geometry()]
-    }
-}*/
-
 struct Field {
     size: Size,
     player_location: Point,
@@ -273,6 +253,7 @@ impl Tanks {
                                 j.hp -= 10f32;
                                 self.bullets.remove(i - rm_ed);
                                 rm_ed += 1;
+                                break;
                             }
                         }
                     }
@@ -289,6 +270,12 @@ impl Tanks {
                             rm_ed += 1;
                         }
                     }
+                }
+                 
+                if self.status == "menu" {
+                    self.enemies.clear();
+                    self.bullets.clear();
+                    self.player.hp = 100f32;
                 }
             }
         }
