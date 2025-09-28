@@ -22,7 +22,7 @@ async fn summarize_text (apis: Arc<[&'static str; 3]>, answer: Arc<[Mutex<String
         "gemini" => create_req_gemini(&client, text).await,
         "huggingface" => create_req_hug(&client, text).await,
         "cohere" => create_req_cohere(&client, text).await,
-        _ => panic!("Unknown site name")
+        _ => "Unknown site name".to_string()
     };
 
     let mut ans = answer[num].lock().unwrap();
