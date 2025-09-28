@@ -56,6 +56,8 @@ impl App {
                 Task::none()
             }
             Message::Restart => {
+                self.status = "Waiting";
+                self.content = text_editor::Content::with_text("Write here");
                 Task::none()
             }
         }
